@@ -53,23 +53,23 @@
         }
         button:active { transform: scale(0.95); }
         button:disabled { background: #555; box-shadow: none; cursor: not-allowed; opacity: 0.6; }
-        .status { margin-top: 25px; font-size: 1.5rem; font-weight: bold; height: 1.5rem; }
+        /*.status { margin-top: 25px; font-size: 1.5rem; font-weight: bold; height: 1.5rem; }*/
         .flash { background-color: #fff !important; }
-        .option { margin-top: 1rem; font-size: 0.95rem; color: #ddd; }
-        .option input[type="checkbox"] { width: auto; padding: 0; margin-right: 0.35rem; vertical-align: middle; }
+        .option { margin-top: 1rem; font-size: 1.2rem; color: #ddd; }
+        .option input[type="checkbox"] { width: auto; padding: 0; margin-right: 0.35rem; vertical-align: middle; transform: scale(1.25); }
         .credit { margin-top: 1.2rem; font-size: 0.8rem; color: #aaa; }
     </style>
 </head>
 <body>
 
 <div class="card">
-    <h2>刹那の○斬り2</h2>
+    <h2>刹那の◯斬り</h2>
     <div class="inputs">
         <input type="number" id="minSec" value="1.0" step="0.5" min="0.1"> 秒 〜 
         <input type="number" id="maxSec" value="10.0" step="1" max="60"> 秒
     </div>
     
-    <button id="startBtn">開 始</button>
+    <button id="startBtn">START</button>
     <div class="status" id="statusText"></div>
     <div class="option">
         <label>
@@ -77,9 +77,9 @@
             「シャキーン」音を再生する
         </label>
     </div>
-    <div class="credit">音源： On-Jin ～音人～ , OtoLogic</div>
+   
 </div>
-
+ <div class="credit">音源： On-Jin ～音人～ , OtoLogic</div>
 <script>
     const startBtn = document.getElementById('startBtn');
     const statusText = document.getElementById('statusText');
@@ -104,8 +104,8 @@
 
         startBtn.disabled = true;
         startBtn.innerText = "WAITING";
-        statusText.innerText = "集中";
-        statusText.style.color = "#ffcc00";
+        /* statusText.innerText = "集中";
+        statusText.style.color = "#ffcc00"; */
 
         const randomFactor = Math.pow(Math.random(), 2);
         const delay = randomFactor * (max - min) + min;
@@ -127,7 +127,7 @@
             setTimeout(() => {
                 body.classList.remove('flash');
                 startBtn.disabled = false;
-                startBtn.innerText = "開 始";
+                startBtn.innerText = "START";
             }, 200);
 
         }, delay);
